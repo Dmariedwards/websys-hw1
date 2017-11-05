@@ -1,7 +1,9 @@
-
 var jq = jQuery.noConflict();
 jq(document).ready(function() {
+
     alert("Welcome to Hexxed");
+
+    //Create instructions
 	var div= document.getElementById("instr");
 	var button = document.createElement("BUTTON");
 	var t = document.createTextNode("Show/Hide Instructions\n");
@@ -14,9 +16,8 @@ jq(document).ready(function() {
     	jq("#instructions").toggle();
     });
 
+    // Add the paramaters to the game so that they can be selected
     var div= document.getElementById("gameparams");
-    var divcol = document.createElement("DIV");
-    divcol.setAttribute("class", "col-sm-4");
 	var difform = document.createElement("form");
 	difform.appendChild(document.createTextNode("Difficulty: "));
 	var difsel = document.createElement("select");
@@ -28,32 +29,31 @@ jq(document).ready(function() {
 		difsel.appendChild(difop);
 	}
 	difform.appendChild(difsel);
-	divcol.appendChild(difform)
-	div.appendChild(divcol);
+	div.appendChild(difform);
+//input parameter for  	rounds since anything >0 is valid
+	var rform = document.createElement("form");
+	rform.appendChild(document.createTextNode("Rounds: "));
+	var rinput = document.createElement("INPUT");
+	rinput.type = "style";
+	rinput.name = "turns";
 
-	var difform = document.createElement("form");
-	divcol = document.createElement("DIV");
-    divcol.setAttribute("class", "col-sm-4");
-	difform.appendChild(document.createTextNode("Rounds: "));
-	var difsel = document.createElement("select");
-	var difop,op1t;
-	for( var i=1; i <15; i++){
-		difop = document.createElement("option");
-		op1t = document.createTextNode(i);
-		difop.appendChild(op1t);
-		difsel.appendChild(difop);
-	}
-	difform.appendChild(difsel);
-	divcol.appendChild(difform)
-	div.appendChild(divcol);
+	var rbutton = document.createElement("INPUT");
+	rbutton.type = "button";
+	rbutton.value = "Submit";
+	rbutton.setAttribute("class", "btn btn-group btn-success");
 
+	rform.appendChild(rinput);
+	rform.appendChild(rbutton);
+	div.appendChild(rform);
 
+	// add a button to start the game
 	divcol = document.createElement("DIV");
     divcol.setAttribute("class", "col-sm-12");
 	div = document.getElementById("start");
 	var button = document.createElement("BUTTON");
 	button.setAttribute("class", "btn btn-primary")
 	var t = document.createTextNode("Start Game\n");
+	button.style.marginBottom = "2%";
 	button.setAttribute("id", "game"); 
 	button.appendChild(t);
 	divcol.appendChild(button);
