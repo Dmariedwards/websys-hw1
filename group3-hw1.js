@@ -30,7 +30,8 @@ jq(document).ready(function() {
 	}
 	difform.appendChild(difsel);
 	div.appendChild(difform);
-//input parameter for  	rounds since anything >0 is valid
+	
+	//input parameter for  	rounds since anything >0 is valid
 	var rform = document.createElement("form");
 	rform.appendChild(document.createTextNode("Rounds: "));
 	var rinput = document.createElement("INPUT");
@@ -59,9 +60,6 @@ jq(document).ready(function() {
 	divcol.appendChild(button);
 	div.appendChild(divcol);	
 });
-
-function start_game(){}
-
 
 
 function  addinstr(){
